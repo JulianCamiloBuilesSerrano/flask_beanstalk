@@ -1,4 +1,5 @@
 
+from flask_configurations  import application, login_manager
 from flask import Flask, current_app, jsonify, make_response, request
 from flask_login import LoginManager
 from werkzeug.security import check_password_hash
@@ -21,11 +22,7 @@ from models import *
 # footer_text = '</body>\n</html>'
 
 # EB looks for an 'application' callable by default.
-application = Flask(__name__)
-login_manager=LoginManager()
-login_manager.init_app(application)
-application.config["SECRET_KEY"] = "1dafafghsdsf5378167ugfdsasdfghj98797781234741arfcshzgwffzgnssaerASXMHMRMDwefsrvs8945)(/%#"
-application.secret_key = "test_secret"
+
 # # add a rule for the index page.
 # application.add_url_rule('/', 'index', (lambda: header_text +
 #     say_hello() + instructions + footer_text))
