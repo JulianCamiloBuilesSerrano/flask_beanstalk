@@ -1,5 +1,5 @@
-import re
-from flask import Flask
+
+from flask import Flask, jsonify, make_response
 
 # # print a nice greeting.
 # def say_hello(username = "World"):
@@ -30,7 +30,7 @@ application = Flask(__name__)
 # # run the app.
 @application.route("/")
 def main():
-    return "hola"
+    return make_response(jsonify({"respuesta":"hola"}),200)
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
