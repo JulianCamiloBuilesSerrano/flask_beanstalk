@@ -96,18 +96,19 @@ from datetime import datetime
 @login_required
 def get_courses(): 
 
-    req_user = request.args.get('user')
-    req_user_id = request.args.get('id')
+    # req_user = request.args.get('user')
+    # req_user_id = request.args.get('id')
 
-    if req_user == None: 
-        return make_response(jsonify('Unathorized request'), 403)
+    # if req_user == None: 
+    #     return make_response(jsonify('Unathorized request'), 403)
 
-    teacher_courses = Usuario.get_teacher_courses(req_user_id)
-    response = []
-    for course in teacher_courses:
-        courseId = course._asdict().get('id')
-        courseName = course._asdict().get('nombre')
-        response.append({'courseCode': courseId, 'courseName': courseName})
+    # teacher_courses = Usuario.get_teacher_courses(req_user_id)
+    # response = []
+    # for course in teacher_courses:
+    #     courseId = course._asdict().get('id')
+    #     courseName = course._asdict().get('nombre')
+    #     response.append({'courseCode': courseId, 'courseName': courseName})
 
-    return make_response(jsonify(response), 200) 
+    # return make_response(jsonify(response), 200) 
+    return "ss"
 # Eod
