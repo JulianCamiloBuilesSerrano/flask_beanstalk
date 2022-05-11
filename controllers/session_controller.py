@@ -1,5 +1,5 @@
-from flask import current_app, jsonify, make_response, request
-from flask_login import login_user
+from flask import current_app, jsonify, make_response, request, session
+from flask_login import login_required, login_user, logout_user
 from flask_configurations import application,login_manager
 from werkzeug.security import check_password_hash
 from models import Usuario
@@ -28,3 +28,11 @@ def login():
     response_user = {'username': user.user, 'id': user.id,
                      "rol":user.type}
     return make_response(jsonify(response_user), 200)
+
+@application.route("/logout", methods=["POST"])
+@login_required
+def logout():
+    current_app.logger.info("Usuario {} deslogueado logueado".format(session["_user_id"]))
+    logout_user()
+    return make_response(jsonify({"respuesta":"cerrado"}),200)
+
