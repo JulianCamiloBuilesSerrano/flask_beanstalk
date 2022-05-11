@@ -30,7 +30,7 @@ def login():
     return make_response(jsonify(response_user), 200)
 
 @application.route("/logout", methods=["POST"])
-# @login_required
+@login_required
 def logout():
     current_app.logger.info("Usuario {} deslogueado logueado".format(session["_user_id"]))
     logout_user()
