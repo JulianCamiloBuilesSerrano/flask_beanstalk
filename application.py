@@ -28,7 +28,7 @@ application = Flask(__name__)
 #     header_text + say_hello(username) + home_link + footer_text))
 
 # # run the app.
-application.route("/")
+@application.route("/")
 def main():
     return "hola"
 if __name__ == "__main__":
